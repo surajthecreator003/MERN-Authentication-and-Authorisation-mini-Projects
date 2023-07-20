@@ -1,10 +1,11 @@
 const app=require("express")();
 
 app.get("/",(req,res)=>{
-    res.setHeader("set-cookie",["setfromserver=1"])
+    res.setHeader("set-cookie",["setfromserver=1","jscantseethis=1 ;httponly"])
     res.sendFile(`${__dirname}/index.html`)
 })
 
+app.get("/steal",(req,res)=>{res.send(`I highly obliged i stole these cookies from you : ${req.query.v}`)})
 
 //path which tellls what cookies are sent to server
 app.get("/path1",(req,res)=>{

